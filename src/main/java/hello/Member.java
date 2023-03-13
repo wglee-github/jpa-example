@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
@@ -37,17 +38,33 @@ public class Member {
 //	private Long teamId;
 	
 	// 객체 연관관계
-	@ManyToOne  // N : 1 -> Member class 기준으로 판단하면 된다.
+	@ManyToOne  // N : 1 -> Member class 기준(연관관계 주인)으로 판단하면 된다.
 	@JoinColumn(name = "TEAM_ID") // 조인할 컬럼. (FK)
 	private Team team;
 	
+	@OneToOne // 1:1 관계 - FK에 유니크 제약조건도 같이 걸어줘야 한다. 당연히 1:1 이니까 여러개 생길 수 있는 여지를 막아야 하기 때문에
+	@JoinColumn(name = "LOCKER_ID")
+	private Locker locker;
+	
+	
+	// JPA는 꼭 기본 생성자를 넣어줘야 한다.
 	public Member() {}
 	
 	public Member(long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
-
+	
+	/**
+	 * 연관관계 편의 메소드
+	 * @param team
+	 */
+	public void changeTeam(Team team) {
+		this.team = team;
+		team.getMembers().add(this);		
+		
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -80,13 +97,12 @@ public class Member {
 		this.team = team;
 	}
 
-	/**
-	 * 연관관계 편의 메소드
-	 * @param team
-	 */
-	public void changeTeam(Team team) {
-		this.team = team;
-		team.getMembers().add(this);		
-		
+	public Locker getLocker() {
+		return locker;
 	}
+
+	public void setLocker(Locker locker) {
+		this.locker = locker;
+	}
+	
 }
