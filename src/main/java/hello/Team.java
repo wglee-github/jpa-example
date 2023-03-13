@@ -25,6 +25,16 @@ public class Team {
 	@OneToMany(mappedBy = "team")	
 	private List<Member> members = new ArrayList<Member>();
 	
+	
+	/**
+	 * 연관관계 편의 메소드
+	 * @param member
+	 */
+	public void addMemebers(Member member) {
+		member.setTeam(this);
+		members.add(member);
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -47,15 +57,6 @@ public class Team {
 
 	public void setMembers(List<Member> members) {
 		this.members = members;
-	}
-
-	/**
-	 * 연관관계 편의 메소드
-	 * @param member
-	 */
-	public void addMemebers(Member member) {
-		member.setTeam(this);
-		members.add(member);
 	}
 	
 }
