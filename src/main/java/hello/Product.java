@@ -14,7 +14,7 @@ import jakarta.persistence.ManyToMany;
  * @author wglee
  *
  */
-@Entity
+//@Entity
 public class Product {
 
 	@Id @GeneratedValue

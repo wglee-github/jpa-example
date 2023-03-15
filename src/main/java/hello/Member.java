@@ -21,7 +21,7 @@ import jakarta.persistence.SequenceGenerator;
  * @author CZ-WGLEE-N1
  *
  */
-@Entity	// Class 객체 관리를 JPA에게 일임
+//@Entity	// Class 객체 관리를 JPA에게 일임
 //@Table(name = "Member") // cㅣass 객체와 DB 테이블 맵핑
 //@Table(uniqueConstraints = {@UniqueConstraint( name = "ID_NAME_UNIQUE", columnNames = {"id", "name"} )}) // 유니크 제약조건 추가. * DDL 생성 기능
 @SequenceGenerator( name = "MEMBER_SEQ_GENERATOR", sequenceName = "MEMBER_SEQ", initialValue = 1, allocationSize = 1)
