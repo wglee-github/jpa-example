@@ -222,14 +222,22 @@ public class JpaMain {
 		
 		try {
 			
-			Member memeber1 =  em.find(Member.class, 20L);	 // DB에서 조회 한 후 1차 캐시에 저장한다.
-			Member memeber2 =  em.find(Member.class, 20L);	 // 1차 캐시에서 조회 한다. 
-			System.out.println("memeber1 memeber2 비교 : " + (memeber1 == memeber2));
+			Member member1 = new Member();
+			member1.setName("user1");
+			em.persist(member1);
+			
+//			em.flush();
+//			em.clear();
+			
+			Member findMember1 =  em.find(Member.class, member1.getId());	 // DB에서 조회 한 후 1차 캐시에 저장한다.
+			Member findMember2 =  em.find(Member.class, member1.getId());	 // 1차 캐시에서 조회 한다. 
+			System.out.println("memeber1 memeber2 비교 : " + (findMember1 == findMember2));
 			
 			
 			// 트랜잭션 종료
 			tx.commit();
 		} catch (Exception e) {
+			e.printStackTrace();
 			tx.rollback();
 		} finally {
 			// EntityManager가 DB connection을 물고 있기 때문에 꼭 닫아줘야 한다.
