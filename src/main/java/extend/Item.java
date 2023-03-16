@@ -39,7 +39,7 @@ import jakarta.persistence.InheritanceType;
  */
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "cd_type_item")
-@Entity
+//@Entity
 public abstract class Item {
 
 	@Id @GeneratedValue
