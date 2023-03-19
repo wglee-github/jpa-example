@@ -42,7 +42,7 @@ public class JpaMain연관관계 {
 public static void main(String[] args) {
 		
 		JpaMain연관관계 jpaMain = new JpaMain연관관계();
-		jpaMain.객체_양방향연관관계();
+		jpaMain.객체_단방향연관관계();
 	}
 
 
@@ -100,7 +100,6 @@ public static void main(String[] args) {
 		
 	}
 	
-	
 	public void 객체_단방향연관관계() {
 		/**
 		 * 애플리케이션 로딩 시점에 한번만 만든다. 데이터베이스당 1개만 실행한다.
@@ -148,6 +147,7 @@ public static void main(String[] args) {
 			// 트랜잭션 종료
 			tx.commit();
 		} catch (Exception e) {
+			e.printStackTrace();
 			tx.rollback();
 		} finally {
 			// EntityManager가 DB connection을 물고 있기 때문에 꼭 닫아줘야 한다.
