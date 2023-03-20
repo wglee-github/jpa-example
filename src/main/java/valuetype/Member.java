@@ -18,7 +18,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 
-@Entity
+//@Entity
 public class Member {
 
 	@Id @GeneratedValue
