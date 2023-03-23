@@ -21,6 +21,8 @@ import jakarta.persistence.InheritanceType;
  * 2.조인 테이블 전략 
  * @Inheritance(strategy = InheritanceType.JOINED)
  * - 테이블 생성 시 부모와 자식 테이블 각각 생성한다.
+ * - 부모의 PK가 자식의 FK로 생성된다.
+ * - 연관관계 맵핑 해주지 않아도 된다.
  *
  * 3. 구현클래스마다 테이블 전략
  * @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)

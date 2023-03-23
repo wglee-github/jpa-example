@@ -29,6 +29,11 @@ public class Parent {
 		• MERGE: 병합
 		• REFRESH: REFRESH
 		• DETACH: DETACH
+		
+		
+		orphanRemoval = true
+		• 부모 엔티티와 연관관계가 끊어진 자식 엔티티를 자동으로 삭제
+		
 	 */
 	@OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Child> childs = new ArrayList<Child>();
