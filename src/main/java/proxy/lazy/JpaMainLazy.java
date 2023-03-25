@@ -26,7 +26,7 @@ public class JpaMainLazy {
 
 	public static void main(String[] args) {
 		
-		문제점();
+		lazyLoading();
 	}
 	
 	/**
@@ -144,8 +144,6 @@ public class JpaMainLazy {
 			Member findMember = em.find(Member.class, member1.getId());
 			System.out.println("************* findMember.getClass() : " +  findMember.getClass());	
 			System.out.println("*************  findMember.getTeam().getClass : " +  findMember.getTeam().getClass());
-			
-			// Proxy 객체의 초기화 : 이 시점에 DB에서 조회 한다.
 			System.out.println("Team : " + findMember.getTeam().getName());
 			
 			

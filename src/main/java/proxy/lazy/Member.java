@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-//@Entity
+@Entity
 public class Member {
 
 	@Id @GeneratedValue
@@ -25,7 +25,7 @@ public class Member {
 	 * - @ManyToOne(fetch = FetchType.EAGER) 
 	 * 
 	 */
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TEAM_ID")
 	private Team team;
 	
