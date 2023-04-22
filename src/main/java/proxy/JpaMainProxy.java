@@ -190,7 +190,7 @@ public class JpaMainProxy {
 	 * 영속성 컨텍스트에 찾는 엔티티가 이미 있으면 em.getReference()를 호출해도 실제 엔티티 반환
 	 * 이유
 	 * 	1. 영속성 컨텍스트에 이미 존재하는 객체를 다시 DB 조회 할 이유가 없다.
-	 * 	2. JPA는 동일한 트랜잭션 내의 같은 영속성 컨텍스트 안에서는 PK가 돌일하다면 == 에 대해 항상 true를 보장해 준다.
+	 * 	2. JPA는 동일한 트랜잭션 내의 같은 영속성 컨텍스트 안에서는 PK가 동일하다면 == 에 대해 항상 true를 보장해 준다.
 	 *  
 	 */
 	public static void proxyLearn3() {
